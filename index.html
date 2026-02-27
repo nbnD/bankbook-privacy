@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — BankBook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Tokens ─────────────────────────────────────────────────── */
+    :root {
+      --navy-900: #0A1628;
+      --navy-800: #0D1F3C;
+      --navy-700: #102A52;
+      --navy-600: #163A6E;
+      --navy-500: #1C4B8A;
+      --navy-400: #2E6BB0;
+      --navy-300: #6096CC;
+      --navy-200: #ADCAE8;
+      --navy-100: #D6E8F5;
+      --navy-050: #F0F6FC;
+
+      --gold-600: #8A6000;
+      --gold-500: #B07D00;
+      --gold-400: #D4A017;
+      --gold-300: #E8BD4A;
+      --gold-200: #F3D98A;
+      --gold-100: #FAEEC5;
+      --gold-050: #FDF8EC;
+
+      --neutral-900: #13161C;
+      --neutral-500: #6B7280;
+      --neutral-200: #E9EBEE;
+      --neutral-100: #F3F4F6;
+      --neutral-050: #F9FAFB;
+
+      --success-light: #D1FAE5;
+      --success-mid:   #228B4E;
+      --error-light:   #FEE2E2;
+      --error-mid:     #DC2626;
+      --warning-light: #FEF3C7;
+      --warning-mid:   #D97706;
+      --warning-dark:  #7C4A00;
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+
+      --radius-sm:  8px;
+      --radius-md:  12px;
+      --radius-lg:  16px;
+      --radius-xl:  20px;
+
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ── Reset ──────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--neutral-050);
+      color: var(--neutral-900);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Entrance animations ─────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* ── Top nav bar ─────────────────────────────────────────────── */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 22, 40, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(212, 160, 23, 0.18);
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      animation: fadeIn 0.4s ease both;
+    }
+
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .topbar-icon {
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(135deg, rgba(212,160,23,.22), rgba(243,217,138,.10));
+      border: 1px solid rgba(212,160,23,.40);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .topbar-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    .topbar-name span:first-child { color: #fff; }
+    .topbar-name span:last-child  { color: var(--gold-400); }
+
+    .topbar-badge {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--gold-400);
+      background: rgba(212,160,23,.12);
+      border: 1px solid rgba(212,160,23,.30);
+      border-radius: 20px;
+      padding: 3px 10px;
+      letter-spacing: 0.3px;
+    }
+
+    /* ── Hero ────────────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy-700) 0%, var(--navy-900) 100%);
+      padding: 56px 24px 52px;
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 0.5s ease both 0.1s;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,160,23,.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212,160,23,.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      animation: fadeUp 0.6s cubic-bezier(0.22,1,0.36,1) both 0.15s;
+    }
+
+    .hero-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .hero-icon {
+      width: 52px; height: 52px;
+      flex-shrink: 0;
+      background: rgba(212,160,23,.14);
+      border: 1.5px solid rgba(212,160,23,.38);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 5vw, 36px);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .hero-subtitle {
+      font-size: 12px;
+      color: var(--navy-200);
+      letter-spacing: 0.4px;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    .hero-rule {
+      height: 1px;
+      background: linear-gradient(90deg, rgba(212,160,23,.65), rgba(212,160,23,.12), transparent);
+      margin-bottom: 22px;
+    }
+
+    .hero-pledge {
+      font-size: 15px;
+      color: rgba(255,255,255,.86);
+      line-height: 1.65;
+      margin-bottom: 22px;
+      max-width: 520px;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 11px;
+      background: rgba(212,160,23,.12);
+      border: 0.8px solid rgba(212,160,23,.32);
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--gold-400);
+      letter-spacing: 0.2px;
+    }
+
+    .badge::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold-400);
+      flex-shrink: 0;
+    }
+
+    /* ── Content wrapper ─────────────────────────────────────────── */
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+    }
+
+    /* ── Section card ────────────────────────────────────────────── */
+    .section-card {
+      background: #fff;
+      border: 1px solid var(--neutral-200);
+      border-radius: var(--radius-lg);
+      padding: 20px 22px;
+      margin-bottom: 14px;
+      opacity: 0;
+      transform: translateY(14px);
+      transition: box-shadow var(--transition);
+    }
+
+    .section-card.visible {
+      animation: fadeUp 0.5s cubic-bezier(0.22,1,0.36,1) both;
+    }
+
+    .section-card:hover {
+      box-shadow: 0 4px 24px rgba(10,22,40,.07);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .section-num {
+      width: 26px; height: 26px;
+      flex-shrink: 0;
+      background: var(--navy-100);
+      color: var(--navy-500);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0;
+      margin-top: 1px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--neutral-900);
+      letter-spacing: -0.01em;
+      padding-top: 3px;
+      line-height: 1.3;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: rgba(233,235,238,.8);
+      margin-bottom: 14px;
+    }
+
+    /* ── Body text ───────────────────────────────────────────────── */
+    .body-text {
+      font-size: 13.5px;
+      color: var(--neutral-500);
+      line-height: 1.7;
+    }
+
+    /* ── Check list ──────────────────────────────────────────────── */
+    .check-list, .cross-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .check-list li, .cross-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 13.5px;
+      color: var(--neutral-900);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .check-icon, .cross-icon {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-size: 9px;
+      font-weight: 900;
+    }
+
+    .check-icon {
+      background: var(--success-light);
+      color: var(--success-mid);
+    }
+
+    .cross-icon {
+      background: var(--error-light);
+      color: var(--error-mid);
+      border: 0.8px solid rgba(220,38,38,.30);
+    }
+
+    /* ── Highlight box ───────────────────────────────────────────── */
+    .highlight-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.55;
+    }
+
+    .highlight-box.info {
+      background: rgba(214,232,245,.45);
+      border: 1px solid rgba(28,75,138,.20);
+      color: var(--navy-700);
+    }
+
+    .highlight-box.warning {
+      background: var(--warning-light);
+      border: 1px solid rgba(217,119,6,.25);
+      color: var(--warning-dark);
+    }
+
+    .highlight-box .hb-icon {
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── Privacy dark card ───────────────────────────────────────── */
+    .privacy-card {
+      background: linear-gradient(135deg, var(--navy-700), var(--navy-900));
+      border: 1px solid rgba(212,160,23,.25);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      margin-bottom: 14px;
+      opacity: 0;
+    }
+
+    .privacy-card.visible {
+      animation: fadeUp 0.5s cubic-bezier(0.22,1,0.36,1) both;
+    }
+
+    .privacy-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .privacy-card-icon {
+      width: 36px; height: 36px;
+      background: rgba(212,160,23,.15);
+      border: 1px solid rgba(212,160,23,.30);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .privacy-card-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+
+    .privacy-label {
+      font-size: 12px;
+      color: var(--navy-200);
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      margin-bottom: 12px;
+    }
+
+    .cross-list.dark li {
+      color: var(--navy-200);
+    }
+
+    .cross-list.dark .cross-icon {
+      background: rgba(220,38,38,.15);
+      color: #F87171;
+      border-color: rgba(248,113,113,.30);
+    }
+
+    .cross-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 480px) {
+      .cross-grid { grid-template-columns: 1fr; }
+    }
+
+    .privacy-pledge {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      padding: 11px 14px;
+      background: rgba(212,160,23,.10);
+      border: 1px solid rgba(212,160,23,.25);
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gold-200);
+      line-height: 1.5;
+    }
+
+    /* ── Contact card ────────────────────────────────────────────── */
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      padding: 16px;
+      background: linear-gradient(135deg, rgba(212,160,23,.10), rgba(212,160,23,.04));
+      border: 1px solid rgba(212,160,23,.30);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      text-decoration: none;
+      transition: background var(--transition), transform var(--transition);
+      margin-top: 14px;
+    }
+
+    .contact-card:hover {
+      background: linear-gradient(135deg, rgba(212,160,23,.16), rgba(212,160,23,.08));
+      transform: translateY(-1px);
+    }
+
+    .contact-card:active { transform: translateY(0); }
+
+    .contact-mail-icon {
+      width: 38px; height: 38px;
+      background: var(--gold-100);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      color: var(--neutral-500);
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .contact-email {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--gold-600);
+      letter-spacing: 0.1px;
+    }
+
+    .contact-copy {
+      margin-left: auto;
+      font-size: 13px;
+      color: var(--neutral-500);
+      opacity: 0.6;
+    }
+
+    /* ── Spacer between lists and following elements ─────────────── */
+    .mt-12 { margin-top: 12px; }
+    .mt-14 { margin-top: 14px; }
+
+    /* ── Footer ──────────────────────────────────────────────────── */
+    .footer {
+      text-align: center;
+      padding: 32px 24px 48px;
+      border-top: 1px solid var(--neutral-200);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .footer-rule {
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent, rgba(212,160,23,.32), rgba(212,160,23,.32), transparent);
+      margin-bottom: 20px;
+    }
+
+    .footer-text {
+      font-size: 12px;
+      color: var(--neutral-500);
+      opacity: 0.6;
+      letter-spacing: 0.2px;
+    }
+
+    .footer-text strong {
+      color: var(--neutral-500);
+      font-weight: 700;
+    }
+
+    /* ── Toast ───────────────────────────────────────────────────── */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(12px);
+      background: var(--navy-800);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 10px 18px;
+      border-radius: 24px;
+      border: 1px solid rgba(212,160,23,.25);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s, transform 0.25s;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      white-space: nowrap;
+      z-index: 999;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ── Responsive ──────────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .hero { padding: 40px 20px 40px; }
+      .content { padding: 24px 16px 48px; }
+      .topbar { padding: 0 16px; }
+      .section-card, .privacy-card { padding: 16px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Top bar ─────────────────────────────────────────────────── -->
+  <nav class="topbar">
+    <a class="topbar-brand" href="#">
+      <div class="topbar-icon">🛡️</div>
+      <div class="topbar-name">
+        <span>Bank</span><span>Book</span>
+      </div>
+    </a>
+    <span class="topbar-badge">Privacy Policy</span>
+  </nav>
+
+  <!-- ── Hero ───────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-header">
+        <div class="hero-icon">🔒</div>
+        <div>
+          <div class="hero-title">Privacy Policy</div>
+          <div class="hero-subtitle">BankBook &nbsp;·&nbsp; Effective 2025 &nbsp;·&nbsp; contact@flutterjunction.com</div>
+        </div>
+      </div>
+
+      <div class="hero-rule"></div>
+
+      <p class="hero-pledge">
+        Your financial data stays on your device.<br>
+        <strong style="color:#fff;">Private. Encrypted. Yours.</strong>
+      </p>
+
+      <div class="badges">
+        <span class="badge">No Cloud Storage</span>
+        <span class="badge">No Data Collection</span>
+        <span class="badge">No Account Required</span>
+        <span class="badge">Offline Only</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Content ────────────────────────────────────────────────── -->
+  <main class="content">
+
+    <!-- 1. Introduction -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">1</div>
+        <div class="section-title">Introduction</div>
+      </div>
+      <div class="section-divider"></div>
+      <p class="body-text">
+        BankBook ("the App") is a secure, offline vault application designed to store banking-related information on your personal device.<br><br>
+        BankBook is designed with a privacy-first approach. The App does not operate a user account system and does not provide cloud-based data storage.
+      </p>
+    </div>
+
+    <!-- 2. Data Storage -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">2</div>
+        <div class="section-title">Data Storage and Processing</div>
+      </div>
+      <div class="section-divider"></div>
+      <p class="body-text" style="margin-bottom:12px;">All financial information entered into BankBook is:</p>
+      <ul class="check-list">
+        <li><span class="check-icon">✓</span> Stored locally on your device</li>
+        <li><span class="check-icon">✓</span> Encrypted using industry-standard cryptographic techniques</li>
+        <li><span class="check-icon">✓</span> Protected by a user-defined PIN and/or biometric authentication</li>
+      </ul>
+      <div class="highlight-box info mt-14">
+        <span class="hb-icon">🛡️</span>
+        <span>The Developer does not receive, access, store, or transmit your banking details. All processing occurs exclusively on your device.</span>
+      </div>
+    </div>
+
+    <!-- 3. Data We Do Not Collect -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">3</div>
+        <div class="section-title">Data We Do Not Collect</div>
+      </div>
+      <div class="section-divider"></div>
+      <p class="body-text" style="margin-bottom:12px;">BankBook does not:</p>
+      <ul class="cross-list">
+        <li><span class="cross-icon">✕</span> Require account registration</li>
+        <li><span class="cross-icon">✕</span> Collect personal financial data</li>
+        <li><span class="cross-icon">✕</span> Access your contacts</li>
+        <li><span class="cross-icon">✕</span> Access your location</li>
+        <li><span class="cross-icon">✕</span> Upload vault contents to any server</li>
+        <li><span class="cross-icon">✕</span> Sell personal data</li>
+        <li><span class="cross-icon">✕</span> Share personal data with third parties</li>
+      </ul>
+    </div>
+
+    <!-- 4. Encrypted Backups -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">4</div>
+        <div class="section-title">Encrypted Backups</div>
+      </div>
+      <div class="section-divider"></div>
+      <p class="body-text" style="margin-bottom:12px;">If you choose to export a backup file:</p>
+      <ul class="check-list">
+        <li><span class="check-icon">✓</span> The backup is encrypted using a password selected by you</li>
+        <li><span class="check-icon">✓</span> The password is not stored by the App or Developer</li>
+        <li><span class="check-icon">✓</span> You are solely responsible for securing your backup file and password</li>
+      </ul>
+      <div class="highlight-box warning mt-14">
+        <span class="hb-icon">⚠️</span>
+        <span>The Developer cannot recover forgotten backup passwords.</span>
+      </div>
+    </div>
+
+    <!-- 5. Crash Reporting -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">5</div>
+        <div class="section-title">Crash Reporting &amp; Technical Diagnostics</div>
+      </div>
+      <div class="section-divider"></div>
+      <p class="body-text" style="margin-bottom:12px;">The App may use third-party crash reporting services (such as Firebase Crashlytics) to improve stability. These may collect limited technical information:</p>
+      <ul class="check-list">
+        <li><span class="check-icon">✓</span> Device type &amp; OS version</li>
+        <li><span class="check-icon">✓</span> App version</li>
+        <li><span class="check-icon">✓</span> Anonymous crash logs and stack traces</li>
+      </ul>
+      <div class="highlight-box info mt-14">
+        <span class="hb-icon">ℹ️</span>
+        <span>Crash reports never include vault contents, banking information, or any user-entered financial data.</span>
+      </div>
+    </div>
+
+    <!-- Privacy Dark Card -->
+    <div class="privacy-card">
+      <div class="privacy-card-header">
+        <div class="privacy-card-icon">🔐</div>
+        <div class="privacy-card-title">Privacy First</div>
+      </div>
+      <p class="privacy-label">BankBook does not:</p>
+      <div class="cross-grid">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span class="cross-icon" style="background:rgba(220,38,38,.15);color:#F87171;border:0.8px solid rgba(248,113,113,.30);flex-shrink:0;">✕</span>
+          <span style="font-size:13px;color:var(--navy-200);font-weight:500;">Upload your data</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span class="cross-icon" style="background:rgba(220,38,38,.15);color:#F87171;border:0.8px solid rgba(248,113,113,.30);flex-shrink:0;">✕</span>
+          <span style="font-size:13px;color:var(--navy-200);font-weight:500;">Sync to cloud</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span class="cross-icon" style="background:rgba(220,38,38,.15);color:#F87171;border:0.8px solid rgba(248,113,113,.30);flex-shrink:0;">✕</span>
+          <span style="font-size:13px;color:var(--navy-200);font-weight:500;">Collect analytics</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span class="cross-icon" style="background:rgba(220,38,38,.15);color:#F87171;border:0.8px solid rgba(248,113,113,.30);flex-shrink:0;">✕</span>
+          <span style="font-size:13px;color:var(--navy-200);font-weight:500;">Share information</span>
+        </div>
+      </div>
+      <div class="privacy-pledge">
+        <span>✅</span>
+        <span>Your financial records remain yours — always.</span>
+      </div>
+    </div>
+
+    <!-- 6. GDPR -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">6</div>
+        <div class="section-title">Legal Bases for Processing (GDPR)</div>
+      </div>
+      <div class="section-divider"></div>
+      <p class="body-text">
+        Where applicable under GDPR, any limited technical data processing (such as crash reports) is performed on the basis of legitimate interest in maintaining application stability and security.<br><br>
+        Because BankBook does not collect personal financial data, most GDPR provisions regarding personal data processing do not apply to vault contents.
+      </p>
+    </div>
+
+    <!-- 7. CCPA -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">7</div>
+        <div class="section-title">California Privacy Rights (CCPA/CPRA)</div>
+      </div>
+      <div class="section-divider"></div>
+      <p class="body-text">
+        BankBook does not sell personal information.<br><br>
+        Because the App does not collect or store user financial data on external servers, most data access and deletion requests are handled directly by the user through uninstalling the application or deleting stored data on their device.
+      </p>
+    </div>
+
+    <!-- 8. Data Retention -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">8</div>
+        <div class="section-title">Data Retention</div>
+      </div>
+      <div class="section-divider"></div>
+      <p class="body-text" style="margin-bottom:12px;">Since financial data is stored only on your device:</p>
+      <ul class="check-list">
+        <li><span class="check-icon">✓</span> You control retention entirely</li>
+        <li><span class="check-icon">✓</span> Uninstalling the App may permanently delete stored data</li>
+        <li><span class="check-icon">✓</span> Crash logs retained by third-party services are subject to those providers' data retention policies</li>
+      </ul>
+    </div>
+
+    <!-- 9. Security -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">9</div>
+        <div class="section-title">Security</div>
+      </div>
+      <div class="section-divider"></div>
+      <p class="body-text" style="margin-bottom:12px;">Technical safeguards implemented:</p>
+      <ul class="check-list">
+        <li><span class="check-icon">✓</span> Local encryption</li>
+        <li><span class="check-icon">✓</span> Authentication via PIN and/or biometrics</li>
+        <li><span class="check-icon">✓</span> Automatic vault locking on inactivity</li>
+        <li><span class="check-icon">✓</span> Screenshot protection (where supported)</li>
+      </ul>
+      <p class="body-text mt-14">
+        No system can guarantee absolute security. Users are responsible for maintaining device security and safeguarding access credentials.
+      </p>
+    </div>
+
+    <!-- 10. International -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">10</div>
+        <div class="section-title">International Users</div>
+      </div>
+      <div class="section-divider"></div>
+      <p class="body-text">
+        BankBook is available globally. By using the App, you acknowledge that any limited technical diagnostic data may be processed in jurisdictions where the crash reporting service operates.<br><br>
+        The Developer does not directly transfer user vault data across borders.
+      </p>
+    </div>
+
+    <!-- 11. Children -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">11</div>
+        <div class="section-title">Children's Privacy</div>
+      </div>
+      <div class="section-divider"></div>
+      <p class="body-text">
+        The App is not intended for children under the age of 13 (or the minimum age required in your jurisdiction). The Developer does not knowingly collect personal data from children.
+      </p>
+    </div>
+
+    <!-- 12. Changes -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">12</div>
+        <div class="section-title">Changes to This Policy</div>
+      </div>
+      <div class="section-divider"></div>
+      <p class="body-text">
+        This Privacy Policy may be updated to reflect legal, technical, or operational changes. Updates will include a revised effective date. Continued use of the App constitutes acceptance of the updated policy.
+      </p>
+    </div>
+
+    <!-- 13. Contact -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-num">13</div>
+        <div class="section-title">Contact</div>
+      </div>
+      <div class="section-divider"></div>
+      <p class="body-text">
+        If you have questions regarding this Privacy Policy, please contact:
+      </p>
+      <a class="contact-card" href="mailto:contact@flutterjunction.com" onclick="copyEmail(event)">
+        <div class="contact-mail-icon">✉️</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-email">contact@flutterjunction.com</div>
+        </div>
+        <div class="contact-copy">⎘</div>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────────── -->
+  <footer style="max-width:760px;margin:0 auto;padding:0 24px 48px;">
+    <div class="footer-rule"></div>
+    <p class="footer-text">
+      <strong>BankBook</strong> &nbsp;·&nbsp; Simple. Elegant. Professional. &nbsp;·&nbsp; 🛡️ Privacy by design.
+    </p>
+  </footer>
+
+  <!-- ── Toast ──────────────────────────────────────────────────── -->
+  <div class="toast" id="toast">✓ &nbsp;Email copied to clipboard</div>
+
+  <script>
+    /* ── Scroll-triggered fade-up for section cards ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const delay = parseFloat(el.dataset.delay || 0);
+          setTimeout(() => {
+            el.classList.add('visible');
+            el.style.opacity = '';
+            el.style.transform = '';
+          }, delay);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.section-card, .privacy-card').forEach((el, i) => {
+      el.dataset.delay = (i % 4) * 60; // stagger in groups of 4
+      observer.observe(el);
+    });
+
+    /* ── Copy email ── */
+    function copyEmail(e) {
+      e.preventDefault();
+      navigator.clipboard.writeText('contact@flutterjunction.com').catch(() => {});
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2400);
+    }
+  </script>
+
+</body>
+</html>
